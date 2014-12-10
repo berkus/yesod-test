@@ -1,0 +1,7 @@
+HC = ghc
+HC_OPTS = -outputdir _build_ --make
+
+rule hc
+  command = $HC $HC_OPTS -o $out $in
+
+build Main: hc Main.hs
