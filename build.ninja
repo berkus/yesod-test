@@ -4,4 +4,9 @@ HC_OPTS = -outputdir _build_ --make
 rule hc
   command = $HC $HC_OPTS -o $out $in
 
+rule start
+  command = env PORT=8181 ./Main
+
 build Main: hc Main.hs
+
+build run: start | Main
