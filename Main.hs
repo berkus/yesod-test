@@ -16,10 +16,9 @@ mkYesod "App" $(parseRoutesFile "config/routes")
 
 getHomeR :: Handler Html
 getHomeR = defaultLayout $ do
+    let filenames = ["readme.txt", "report.pdf", "music.mp3"] :: [String]
     setTitle "File Processor"
-    toWidget [whamlet|
-<h2>Previously submitted files
-|]
+    $(widgetFileNoReload def "home")
 
 main :: IO ()
 main = warpEnv App
