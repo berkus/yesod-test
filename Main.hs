@@ -8,5 +8,5 @@ import Foundation
 
 main :: IO ()
 main = do
-    tfilenames <- atomically $ newTVar ["readme.txt", "report.pdf", "music.mp3"]
+    tfilenames <- atomically $ newTVar []
     warpEnv $ App tfilenames
